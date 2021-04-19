@@ -1,0 +1,9 @@
+.idea/
+.vscode/
+.env
+.env.production
+ormconfig.json
+node_modules/
+build/
+tmp/
+temp/

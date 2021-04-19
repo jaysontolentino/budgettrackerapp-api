@@ -1,0 +1,34 @@
+@baseUrl = http://localhost:3020/api/v1
+
+# @name getAllUsers
+GET {{baseUrl}}/users HTTP/1.1
+
+# @name createUser
+POST {{baseUrl}}/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "billy@test.com",
+    "firstName": "billy",
+    "lastName": "joe",
+    "age": 24
+}
+
+
+@userId = {{getAllUsers.response.body.$[0].id}}
+@testUserId = 1
+
+# @name getUserByID
+GET {{baseUrl}}/users/{{userId}} HTTP/1.1
+
+
+# @name updateUserByID
+PUT {{baseUrl}}/users/{{userId}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "address": "silicon valley"
+}
+
+# @name deleteUserByID
+DELETE {{baseUrl}}/users/{{userId}} HTTP/1.1
